@@ -1,0 +1,47 @@
+[
+  {
+    "dzimums": "dels",
+    "skAdrese": "Gaujas ielā 10 - 2, Valmierā",
+    "skEpasts": "rupucis@inbox.lv",
+    "skKlase": "7.c",
+    "skPerskods": "123456-12345",
+    "skSkola": "Pārgaujas ģimnāzija",
+    "skTelefons": "98765432",
+    "skUzvards": "Kociņu",
+    "skVards": "Gati",
+    "vecEpasts": "12345678",
+    "vecTelefons": "ilzekocina@inbox.lv",
+    "vecUzvards": "Kociņa",
+    "vecVards": "Ilze"
+  },
+  {
+    "dzimums": "meita",
+    "skAdrese": "Skolas ielā 10 - 2, Malienā",
+    "skEpasts": "ilziite@inbox.lv",
+    "skKlase": "7.m",
+    "skPerskods": "111109-11111",
+    "skSkola": "Gaujas pamatskola",
+    "skTelefons": "99999999",
+    "skUzvards": "Biezo",
+    "skVards": "Ilzi",
+    "vecEpasts": "gatisbiezais@inbox.lv",
+    "vecTelefons": "88888888",
+    "vecUzvards": "Biezais",
+    "vecVards": "Gatis"
+  },
+  {
+    "dzimums": "meita",
+    "skAdrese": "Gaujas ielā 10 - 2, Rīgā",
+    "skEpasts": "rupucis@inbox.lv",
+    "skKlase": "7.a",
+    "skPerskods": "123456-12345",
+    "skSkola": "Putnu vidusskola",
+    "skTelefons": "98765432",
+    "skUzvards": "Lielo",
+    "skVards": "Daci",
+    "vecEpasts": "ddd",
+    "vecTelefons": "dd",
+    "vecUzvards": "ddd",
+    "vecVards": "ddd"
+  }
+]

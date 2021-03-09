@@ -1,0 +1,110 @@
+[{"pulcID": 1,
+"skolotID": 1,
+"adrese": "Binārais bulvāris 101",
+"stunduSkaits": 4,
+"laiks": [
+            {
+                "diena": "ceturtdiena",
+                "lidz": "20.00",
+                "no": "18.00"
+            },
+            {
+                "diena": "piektdiena",
+                "lidz": "20.00",
+                "no": "18.00"
+            }
+        ]
+},
+{"pulcID": 2,
+"skolotID": 2,
+"adrese": "Binārais bulvāris 101",
+"stunduSkaits": 4,
+"laiks": [
+            {
+                "diena": "sestdiena",
+                "lidz": "12.00",
+                "no": "10.00"
+            },
+            {
+                "diena": "svētdiena",
+                "lidz": "12.00",
+                "no": "10.00"
+            }
+        ]
+},
+{"pulcID": 3,
+"skolotID": 3,
+"adrese": "Vašingtona laukums 234",
+"stunduSkaits": 6,
+"laiks": [
+            {
+                "diena": "pirmdiena",
+                "lidz": "18.00",
+                "no": "16.00"
+            },
+            {
+                "diena": "trešdiena",
+                "lidz": "18.00",
+                "no": "16.00"
+            },
+            {
+                "diena": "sestdiena",
+                "lidz": "12.00",
+                "no": "10.00"
+            }
+        ]
+},
+{"pulcID": 4,
+"skolotID": 4,
+"adrese": "Meža bulvāris 7, Mārupe",
+"stunduSkaits": 2,
+"laiks": [
+            {
+                "diena": "sestdiena",
+                "lidz": "12.00",
+                "no": "10.00"
+            }
+		]
+},
+{"pulcID": 5,
+"skolotID": 5,
+"adrese": "Bērzu gatve 2, Rīga",
+"stunduSkaits": 4,
+"laiks": [
+            {
+                "diena": "otrdiena",
+                "lidz": "20.00",
+                "no": "18.00"
+            },
+            {
+                "diena": "piektdiena",
+                "lidz": "19.00",
+                "no": "17.00"
+            }
+        ]
+},
+{"pulcID": 6,
+"skolotID": 6,
+"adrese": "Kaktusu aleja 14, Rīga",
+"stunduSkaits": 3,
+"laiks": [
+            {
+                "diena": "piektdiena",
+                "lidz": "19.00",
+                "no": "16.00"
+            }
+		]
+},
+{"pulcID": 7,
+"skolotID": 7,
+"adrese": "BJC Šāds",
+"stunduSkaits": 1,
+"laiks": [
+            {
+                "diena": "pirmdiena",
+                "lidz": "9.00",
+                "no": "8.00"
+            }
+        ]
+}
+]
