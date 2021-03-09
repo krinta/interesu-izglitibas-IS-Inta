@@ -1,10 +1,8 @@
 from flask import Flask, json, jsonify, render_template, request
 import dati
 import os
-
 app = Flask(__name__)
 app.config['JSON_AS_ASCII']=False
-
 
 @app.route('/')
 def index():
@@ -26,7 +24,7 @@ def vPieteikums():
 @app.route('/vecaku_pieteikums/lasa', methods=['GET'])
 def lasaDatus():
     # atveram datni
-    with open("dati/vecaku_pieteikums.txt", "r") as f:
+    with open("dati/vecaku_pieteikums.txt", "r",encoding='utf-8') as f:
         # ielasām un pārvēršam par json
         dati = json.loads(f.read())
     
@@ -56,6 +54,25 @@ def jaunsPieteikums():
         f.write(json.dumps(dati))
     # atgriežam jauno ID
     return jsonify(jaunsPieteikums)
+
+# lasa no datnes pulcini.json un parāda
+@app.route('/pulcini/lasa', methods=['GET'])
+def lasaVisusDatus():
+    # atveram datni
+    with open("dati/pulcini.json", "r",encoding='utf-8') as f:
+      # ielasām un pārvēršam par json
+      dati = json.loads(f.read())
+    # pārveidojam par string pirms atgriežam
+    #return jsonify(dati)
+    rezultats = []
+    for ieraksts in dati:
+      rezultats.append(ieraksts['laiks'])
+#append vai extend
+    
+
+    return jsonify(rezultats)
+
+
 
 
 @app.route('/registret_IIC')
