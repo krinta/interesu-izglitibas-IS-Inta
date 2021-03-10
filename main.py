@@ -59,18 +59,60 @@ def jaunsPieteikums():
 @app.route('/pulcini/lasa', methods=['GET'])
 def lasaVisusDatus():
     # atveram datni
+  if os.path.isfile("dati/pulcini.json") and os.path.getsize("dati/pulcini.json") > 0:  
     with open("dati/pulcini.json", "r",encoding='utf-8') as f:
       # ielasām un pārvēršam par json
       dati = json.loads(f.read())
-    # pārveidojam par string pirms atgriežam
-    #return jsonify(dati)
-    rezultats = []
-    for ieraksts in dati:
-      rezultats.append(ieraksts['laiks'])
-#append vai extend
+    # veidojas skolotajuTabula.json
+      if os.path.isfile("dati/skolotajuTabula.json") and os.path.getsize("dati/skolotajuTabula.json") > 0:
+        with open("dati/skolotajuTabula.json", "r", encoding='utf-8') as g:
+          skolotaji = json.loads(g.read()) 
+      else:
+        skolotaji=[]
+      for ieraksts in dati:
+        sk={"skolotID": ieraksts["id"],"skolotajs":ieraksts["skolotajs"],"epasts":ieraksts["epasts"],"talrunis":ieraksts["talrunis"]}  
+        skolotaji.append(sk)
+    with open("dati/skolotajuTabula.json", "w", encoding='utf-8') as f:
+      f.write(json.dumps(skolotaji,ensure_ascii=False))
     
+    # veidojas pulcTabula.json
+      if os.path.isfile("dati/pulcTabula.json") and os.path.getsize("dati/pulcTabula.json") > 0:
+        with open("dati/pulcTabula.json", "r", encoding='utf-8') as g:
+          pulcini = json.loads(g.read()) 
+      else:
+        pulcini=[]
 
-    return jsonify(rezultats)
+      for ieraksts in dati:
+        pulc={
+          "pulcID": ieraksts["id"],
+          "skolotID":ieraksts["id"],
+          "iicID":ieraksts["id"],
+          "nosaukums":ieraksts["nosaukums"],
+          "joma":ieraksts["joma"],
+          "maxAudzekni":ieraksts["maxAudzekni"],
+          "vecums":ieraksts["vecums"]
+          }  
+        pulcini.append(pulc)
+    with open("dati/pulcTabula.json", "w", encoding='utf-8') as g:
+      g.write(json.dumps(pulcini,ensure_ascii=False))
+    
+    
+    # veidojas laikaTabula.json
+    if os.path.isfile("dati/laikaTabula.json") and os.path.getsize("dati/laikaTabula.json") > 0:
+      with open("dati/laikaTabula.json", "r", encoding='utf-8') as f:
+        laiki = json.loads(f.read()) 
+    else:
+      laiki=[]
+
+    for d in dati:
+      jauns={"pulcID": d["id"],"skolotID": d["id"],"adrese":d["adrese"],"stunduSkaits":d["stunduSkaits"],"laiks":d["laiks"]}  
+      laiki.append(jauns)
+
+    with open("dati/laikaTabula.json", "w", encoding='utf-8') as f:
+      f.write(json.dumps(laiki,ensure_ascii=False)) 
+  return jsonify(laiki) 
+
+
 
 
 
@@ -80,4 +122,14 @@ def regIIC():
   return 1
 
 if __name__ == "__main__":
-   app.run("0.0.0.0", debug=True)
+
+  files = [
+    "dati/laikaTabula.json",
+    "dati/pulcTabula.json",
+    "dati/skolotajuTabula.json"]
+
+  for file in files:
+    if os.path.isfile(file):
+      os.remove(file)
+
+  app.run("0.0.0.0", debug=True)
