@@ -122,7 +122,7 @@ def regIIC():
   return 1
 
 if __name__ == "__main__":
-
+  # šis un for jāizdzēš
   files = [
     "dati/laikaTabula.json",
     "dati/pulcTabula.json",
@@ -131,5 +131,6 @@ if __name__ == "__main__":
   for file in files:
     if os.path.isfile(file):
       os.remove(file)
+  # faila dzesanas beigas
 
   app.run("0.0.0.0", debug=True)
