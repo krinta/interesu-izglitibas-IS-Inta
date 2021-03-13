@@ -67,19 +67,26 @@ function nosutitPulcinaInfo() {
     // nākamās divas rindas šajā vietā ir tikai pagaidām, jo vispār tās dzīvo tur zemāk ar .then utt., 
     // be tā kā dati uz serveri nesūtas, tad nākamie .then nekad laikam neizpildās, tātad f-jas nestrādā.
     // Tāpēc iemānīts šeit.
-    window.alert("Dati saglabāti");
-    location.href="pulcinu_saraksts.html"
+
+    //Sis bloķē javascripta izpildi un fetch tiek palaists..
+    //.. tikai pēc paziņojuma 'ok' nospiešans.
+    //... un patiesiba dati nav saglabati, bet ir lejupieladeti
+   // alert("Dati saglabāti");
+
+    // Sis dubultojas ar .then pāris rindas zemāk
+    //location.href="/pulcina_info";
+
     // Mānīšanās beigas
 
     
-    fetch('https://kalviskincis.github.io/interesu-izglitibas-IS/views/', {
+    fetch('/pulcini/lasa', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dict)
     })
         .then(res => res.json())
         .then(data => document.getElementById("saglabats").innerHTML = "Dati saglabāti")
-        .then(data => location.href="pulcinu_saraksts.html")
+        .then(data => location.href="/pulcina_info")
 
 }
 

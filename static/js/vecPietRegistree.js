@@ -18,31 +18,28 @@ function vecPietRegistree1(){
     else 
         if(document.getElementById('r1').checked==false) alert("Izlasi noteikumus!")
     else{
-    var dict={vecVards:vecVards, vecUzvards:vecUzvards, vecEpasts:vecEpasts, vecTelefons:vecTelefons,
-        dzimums:dzimums, skVards:skVards, skUzvards:skUzvards, skSkola:skSkola, skKlase:skKlase,
-        skPerskods:skPerskods, skAdrese:skAdrese, skEpasts:skEpasts, skTelefons:skTelefons};
+        var dict={vecVards:vecVards, vecUzvards:vecUzvards, vecEpasts:vecEpasts, vecTelefons:vecTelefons,
+            dzimums:dzimums, skVards:skVards, skUzvards:skUzvards, skSkola:skSkola, skKlase:skKlase,
+            skPerskods:skPerskods, skAdrese:skAdrese, skEpasts:skEpasts, skTelefons:skTelefons};
         
         jsonData = JSON.stringify(dict);
         console.log(jsonData);
-        if (document.getElementById('r1').checked)
-        download(jsonData, 'vecakuPieteikumsSuutiit.txt', 'text/plain');
-        alert("Visi dati veiksmīgi saglabāti")
+        //download(jsonData, 'vecakuPieteikumsSuutiit.txt', 'text/plain');
     }
-    fetch('https://interesu-izglitibas-IS.intakrievia.repl.co/vecaku_pieteikums', {
+    fetch('/vecaku_pieteikums', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body:JSON.stringify(dict)
     })    
     .then(res => res.json())
     .then(data => document.getElementById("zinojumi").innerHTML = "Dati saglabāti")
-        
+       
 }
 
-
-function download(content, fileName, contentType) {
+/*function download(content, fileName, contentType) {
     var a = document.createElement("a");
     var file = new Blob([content], { type: contentType });
     a.href = URL.createObjectURL(file);
     a.download = fileName;
     a.click();
-}
+}*/
